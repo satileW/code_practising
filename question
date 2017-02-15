@@ -1,0 +1,32 @@
+what excited me?
+Your start-up culture of transparency, independence, and rapid iteration drive your product forward and provide a meaningful life experience.
+This kind of corporation culture is what I am searching for my career. From my self improvement,
+I want to thrive attacking problems of mind-bending complexity, and I am seeking a workplace where I can learn and grow,
+I consider myself as open, collaborative, and driven as I am brilliant,thus I really want joining your team.
+The last reason for my interest in your company is enterprise marketing data analysis with integration of disparate routes. As I can see your
+ costumers list, I think it is time for digital marketing influence from IT world to entire world. And I also think many analysis departments
+ in traditional area like Walmart should steal some of your company's costumer target strategies.
+
+ The second problem?
+  Normally, I can copy the array with extra space, and sort the new array. Then compare the new sorted array with
+  original array to check which position is not put by the right place and get the smallest index and the largest index for unsorted elements.
+  The unsorted array length will be largest - smallest + 1.This method will be o(n) space complexity and o(nlogn) time complexity.
+  But in this question a[i] <= a[i+1] is a good condition to check and this question seems can be solve by linear time complexity.
+  First step, I scan the array from index 0 to index n-1(n == array.length) and find the first index which array[i]>array[i+1].
+  And if I got one element a[i] in last step, at least a[i],a[i+1] will compose a unsorted array. I assume i is the start of a unsorted
+  array. If I do this similar scan from index n-1 to 0,find index j which a[j] < a[j-1], the unsorted array will be extended to [i, j] as the j
+  is also a unsorted element.
+  Now I find a start candidate i and end candidate j for unsorted array in original array. The start of unsorted array can only be smaller than i, and the end
+  of the unsorted array can only be bigger than j.
+  what case if [i, j] is just the right index for unsorted array?
+  a[i-1] <= minimum element of unsorted array[i, j], with former condition : [0, i-1] is sorted array (a[x]<=a[x+1]),
+  this means position of minimum element from unsorted array[i, j] is i and limits the unsorted array start from i.
+  Similar to the maximum element of unsorted array[i, j], if max value <= a[j+1], position of max value from unsorted array
+  is j and limits the unsorted array end with j.
+  But if min value MIN from [i, j] < a[i-1] , what will I do?
+  I want to find right index for MIN, so I scan x from i-1 to 0, if MIN >= a[x], means MIN's right position in array is x+1,
+  so the start of unsorted array will be update with x+1.
+  Same situation to MAX from [i, j] and MAX > a[j+1].
+  Even though the [j+1, n-1] is sorted array but MAX's right position y belongs to [j+1, n-1]. And this means range of unsorted array will extend
+  to y.So I update the end index of unsorted array with y.
+  Eventually after I do the MIN and MAX check, the start/end of unsorted array is totally right.
